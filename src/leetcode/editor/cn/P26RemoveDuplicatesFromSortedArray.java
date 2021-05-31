@@ -52,42 +52,35 @@
 //
 // 
 // Related Topics 数组 双指针 
-// 👍 2071 👎 0
+// 👍 2076 👎 0
+
 
 package leetcode.editor.cn;
-
-import java.lang.reflect.Array;
-import java.util.Arrays;
-
-//删除有序数组中的重复项
-class p26RemoveDuplicatesFromSortedArray{
+//Java：删除有序数组中的重复项
+public class P26RemoveDuplicatesFromSortedArray{
     public static void main(String[] args) {
-        Solution solution = new p26RemoveDuplicatesFromSortedArray().new Solution();
+        Solution solution = new P26RemoveDuplicatesFromSortedArray().new Solution();
         // TO TEST
-        int[] nums=new int[]{1,1,2,3,3,5};
-
-        System.out.println(solution.removeDuplicates(nums));
-        for(int i=0;i<solution.removeDuplicates(nums);i++){
+        int[] nums={1,1,2,3,4,5,6,6,6};
+//        System.out.println(solution.removeDuplicates(nums));
+        for (int i=0;i<solution.removeDuplicates(nums);i++){
             System.out.println(nums[i]);
         }
+        
     }
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int removeDuplicates(int[] nums) {
-        int size=nums.length;
-        for (int i=0;i<size-1;i++){
-            if (nums[i]==nums[i+1]){
-                for (int j=i;j<size-1;j++){
-                    nums[j]=nums[j+1];
-                }
-                size--;
-                i--;
+        int slow=1;
+        int fast=1;
+        while (fast<nums.length){
+            if (nums[fast]!=nums[fast-1]){
+                nums[slow]=nums[fast];
+                slow++;
             }
+            fast++;
         }
-        return size;
-        //push啦啦啦
-        //pull 啦啦啦
-        //第二台电脑 啦啦啦
+        return slow;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
@@ -95,5 +88,5 @@ class Solution {
 }
 /*
  *@jackpoit
- *@date 2021-05-24 23:42:04	
+ *@date 2021-05-31 10:52:07
  */
