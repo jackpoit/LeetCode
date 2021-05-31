@@ -27,5 +27,12 @@ public class BinarySearchTest {
 
     //反过来 如果条件为target>=nums[mid]，就会返回最后一个3的索引值
 
-    //2分法 如果一直执行下去，肯定会有一个瞬间，left=right=mid
+    //二分法 如果一直执行下去，肯定会有一个瞬间，left=right=mid
+
+    //二分法目前只能处理4中情况
+    //1、有序数组不重复 target存在数组中     与target=nums[mid]--> left动还是right动无关，自动找到位置
+    //2、有序数组不重复 target不存在数组中   与target=nums[mid]--> left动还是right动无关，自动找到位置
+    //3、有序数组有重复 target存在数组中      与target=nums[mid]--> left动还是right动有关，看上面的分析
+    //4、有序数组有重复 target不存在数组中    与target=nums[mid]--> left动还是right动无关，自动找到位置
+
 }
