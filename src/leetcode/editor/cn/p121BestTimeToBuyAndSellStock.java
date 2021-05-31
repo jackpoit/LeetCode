@@ -47,21 +47,23 @@ public class p121BestTimeToBuyAndSellStock{
 class Solution {
     public int maxProfit(int[] prices) {
         int min=Integer.MAX_VALUE;
-        int max=0;
+        int max_profit=0;
         for (int i=0;i<prices.length;i++){
             if (prices[i] < min) {
                 min=prices[i];
-            }else if (prices[i]-min>max){
-                max=prices[i]-min;
+            }else if (prices[i]-min>max_profit){
+                max_profit=prices[i]-min;
             }
         }
-        return max;
+        return max_profit;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
-            // 之所以用else if 是因为如果当前的数小于之前所有的最小值
-            // 他这天就不可能卖出股票，因为价格比之前所有都低
-            //
+    // 之所以用else if 是因为如果当前的数小于之前所有的最小值
+    // 他这天就不可能卖出股票，因为价格比之前所有都低
+    //只需要遍历一次，
+    // 每次比较，先求出之前的最小值，只需当前值与最小值比较
+    // 在把当前数与前面最小值的差值与最大利润比较 若大于最大利润则变成最大值
 }
 /*
  *@jackpoit
