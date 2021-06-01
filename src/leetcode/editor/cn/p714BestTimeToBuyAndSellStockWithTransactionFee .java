@@ -27,10 +27,9 @@
 // Related Topics 贪心算法 数组 动态规划 
 // 👍 488 👎 0
 
-
 package leetcode.editor.cn;
-//Java：买卖股票的最佳时机含手续费
-public class p714BestTimeToBuyAndSellStockWithTransactionFee{
+//买卖股票的最佳时机含手续费
+class p714BestTimeToBuyAndSellStockWithTransactionFee{
     public static void main(String[] args) {
         Solution solution = new p714BestTimeToBuyAndSellStockWithTransactionFee().new Solution();
         // TO TEST
@@ -42,8 +41,10 @@ class Solution {
         int a=0;
         int b=Integer.MIN_VALUE;
         for (int price:prices){
-            int newa=Math.max(a,b+price-fee);
-            int newb=Math.max(b,a-price);
+//            int newa=Math.max(a,b+price-fee); 这样写理论没错 但是如果第一次price<fee b会溢出
+//            int newb=Math.max(b,a-price);
+            int newa=Math.max(a,b+price);
+            int newb=Math.max(b,a-price-fee);
             a=newa;
             b=newb;
         }
@@ -55,5 +56,5 @@ class Solution {
 }
 /*
  *@jackpoit
- *@date 2021-06-01 20:17:58
+ *@date 2021-06-01 22:49:12	
  */
