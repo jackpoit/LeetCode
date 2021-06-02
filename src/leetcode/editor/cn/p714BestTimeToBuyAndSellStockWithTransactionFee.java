@@ -25,11 +25,12 @@
 // 0 <= fee < 50000. 
 // 
 // Related Topics 贪心算法 数组 动态规划 
-// 👍 488 👎 0
+// 👍 489 👎 0
+
 
 package leetcode.editor.cn;
-//买卖股票的最佳时机含手续费
-class p714BestTimeToBuyAndSellStockWithTransactionFee{
+//Java：买卖股票的最佳时机含手续费
+public class p714BestTimeToBuyAndSellStockWithTransactionFee{
     public static void main(String[] args) {
         Solution solution = new p714BestTimeToBuyAndSellStockWithTransactionFee().new Solution();
         // TO TEST
@@ -38,17 +39,26 @@ class p714BestTimeToBuyAndSellStockWithTransactionFee{
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int maxProfit(int[] prices, int fee) {
-        int a=0;
-        int b=Integer.MIN_VALUE;
-        for (int price:prices){
-//            int newa=Math.max(a,b+price-fee); 这样写理论没错 但是如果第一次price<fee b会溢出
-//            int newb=Math.max(b,a-price);
-            int newa=Math.max(a,b+price);
-            int newb=Math.max(b,a-price-fee);
-            a=newa;
-            b=newb;
-        }
-        return a;
+        int max_profit=0;
+       int buy=prices[0]+fee;//买入状态时 之前的最低价
+       for (int i=1;i<prices.length;i++){
+           if (prices[i]+fee<buy){
+               buy=prices[i]+fee;
+               //先看买不买
+               //如果第i天 price+fee<之前的最低价 那我为什么不在第i天再买
+               // 所以 buy=prices[i]+fee
+           }else if (prices[i]>buy){
+                max_profit+=prices[i]-buy;
+                buy=prices[i];
+                //如果不买 我就看要不要卖
+               //如果price[i]>buy 那我就买了  获得利润
+               //但是要是后一天涨了 提供一个反悔的操作
+               //因为我买了 手里就没股票 但是如果第二天我后悔了
+               //那我希望今天最后手里还有股票，那就假装自己没卖；但是利润还是要
+               //就相当我卖出的时候 不用fee买入了一个今天价格的股票
+           }
+       }
+       return max_profit;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
@@ -56,5 +66,5 @@ class Solution {
 }
 /*
  *@jackpoit
- *@date 2021-06-01 22:49:12	
+ *@date 2021-06-02 09:13:32
  */

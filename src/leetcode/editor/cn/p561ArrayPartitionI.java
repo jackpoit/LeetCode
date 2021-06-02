@@ -60,6 +60,7 @@ class Solution {
             sum+=nums[i];
         }
         return sum;
+
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
