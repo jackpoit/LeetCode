@@ -24,26 +24,26 @@ package leetcode.editor.cn;
 /* The isBadVersion API is defined in the parent class VersionControl.
       boolean isBadVersion(int version); */
 
-public class Solution extends VersionControl {
-    public int firstBadVersion(int n) {
-        int left=0;
-        int right=n-1;
-        while (left<=right) { //left<right
-            int mid = left + (right - left) / 2;
-            if (!isBadVersion(mid)){
-                left=mid+1;
-            }else {
-                right=mid-1;//right =mid  这个配合上面的可以减少一次判断 但全是好的零件就会判断出错！
-            }
-        }
-
-        //最后left=right时 left之前肯定是好的所以left才能移动到这
-        //同样 right后面都是坏的，它在能移动到这
-        //最后一次判断 这个如果是好的 left移动到下一个 也是第一个坏的 也就是答案
-        //           如果这个是坏的，前面都是好的所以这个点也就是left是答案，right前移一个正好打破循环
-        return left;
-    }
-}
+//public class Solution extends VersionControl {
+//    public int firstBadVersion(int n) {
+//        int left=0;
+//        int right=n-1;
+//        while (left<=right) { //left<right
+//            int mid = left + (right - left) / 2;
+//            if (!isBadVersion(mid)){
+//                left=mid+1;
+//            }else {
+//                right=mid-1;//right =mid  这个配合上面的可以减少一次判断 但全是好的零件就会判断出错！
+//            }
+//        }
+//
+//        //最后left=right时 left之前肯定是好的所以left才能移动到这
+//        //同样 right后面都是坏的，它在能移动到这
+//        //最后一次判断 这个如果是好的 left移动到下一个 也是第一个坏的 也就是答案
+//        //           如果这个是坏的，前面都是好的所以这个点也就是left是答案，right前移一个正好打破循环
+//        return left;
+//    }
+//}
 //leetcode submit region end(Prohibit modification and deletion)
 
 /*

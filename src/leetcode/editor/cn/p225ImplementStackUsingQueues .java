@@ -61,12 +61,6 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 //用队列实现栈
-class p225ImplementStackUsingQueues{
-    public static void main(String[] args) {
-        Solution solution = new p225ImplementStackUsingQueues().new Solution();
-        // TO TEST
-        
-    }
     //leetcode submit region begin(Prohibit modification and deletion)
 class MyStack {
 
@@ -116,8 +110,6 @@ class MyStack {
  * boolean param_4 = obj.empty();
  */
 //leetcode submit region end(Prohibit modification and deletion)
-
-}
 /*
  *@jackpoit
  *@date 2021-06-13 22:59:29	

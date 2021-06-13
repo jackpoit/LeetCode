@@ -49,7 +49,7 @@ class p7ReverseInteger{
     public static void main(String[] args) {
         Solution solution = new p7ReverseInteger().new Solution();
         // TO TEST
-        System.out.println(solution.reverse(1223));
+        System.out.println(solution.reverse(122333));
     }
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
