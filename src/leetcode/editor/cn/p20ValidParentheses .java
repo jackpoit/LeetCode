@@ -57,6 +57,7 @@
 package leetcode.editor.cn;
 
 import java.util.Arrays;
+import java.util.Stack;
 
 //有效的括号
 class p20ValidParentheses{
@@ -68,18 +69,28 @@ class p20ValidParentheses{
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public boolean isValid(String s) {
-        while(s.contains("()")||s.contains("[]")||s.contains("{}")){
-            if(s.contains("()")){
-                s=s.replace("()","");
+        Stack<Character> stack=new Stack<>();
+        for (char c:s.toCharArray()) {
+        if (c=='{'||c=='['||c=='('){
+            stack.push(c);
+        }else {
+            if (stack.isEmpty()){
+                return false;
             }
-            if(s.contains("{}")){
-                s=s.replace("{}","");
+            //"]" 如果只有右括号 会报错 取出栈顶元素时要判断栈是否为空
+            char topChar=stack.pop();
+            if (c=='}'&&topChar!='{'){
+                return false;
             }
-            if(s.contains("[]")){
-                s=s.replace("[]","");
+            if (c==']'&&topChar!='['){
+                return false;
+            }
+            if (c==')'&&topChar!='('){
+                return false;
             }
         }
-        return s.length()==0;
+        }
+        return stack.isEmpty(); //"["
 
     }
 }
