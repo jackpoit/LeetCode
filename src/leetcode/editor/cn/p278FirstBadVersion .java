@@ -1,4 +1,3 @@
-
 //你是产品经理，目前正在带领一个团队开发新的产品。不幸的是，你的产品的最新版本没有通过质量检测。由于每个版本都是基于之前的版本开发的，所以错误的版本之后的所有
 //版本都是错的。 
 //
@@ -21,13 +20,7 @@
 
 package leetcode.editor.cn;
 //第一个错误的版本
-class p278FirstBadVersion{
-    public static void main(String[] args) {
-        Solution solution = new p278FirstBadVersion().new Solution();
-        // TO TEST
-        
-    }
-    //leetcode submit region begin(Prohibit modification and deletion)
+//leetcode submit region begin(Prohibit modification and deletion)
 /* The isBadVersion API is defined in the parent class VersionControl.
       boolean isBadVersion(int version); */
 
@@ -53,8 +46,7 @@ public class Solution extends VersionControl {
 }
 //leetcode submit region end(Prohibit modification and deletion)
 
-}
 /*
  *@jackpoit
- *@date 2021-06-13 23:39:47	
+ *@date 2021-06-14 00:23:02	
  */
