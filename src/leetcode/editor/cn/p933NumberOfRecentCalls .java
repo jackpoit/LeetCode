@@ -42,32 +42,25 @@
 // Related Topics 队列 
 // 👍 87 👎 0
 
-
 package leetcode.editor.cn;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-//Java：最近的请求次数
+//最近的请求次数
 //leetcode submit region begin(Prohibit modification and deletion)
 class RecentCounter {
     Queue<Integer> queue;
-
     public RecentCounter() {
-        queue = new LinkedList<>();
+        queue=new LinkedList<>();
     }
-
+    
     public int ping(int t) {
-        if (queue.isEmpty()) {
             queue.offer(t);
-            return 1;
-        } else {
-            while (!queue.isEmpty()&&queue.peek() < t - 3000) {
+            while (queue.peek()<t-3000) {
                 queue.poll();
             }
-        }
-        queue.offer(t);
-        return queue.size();
+            return queue.size();
     }
 }
 
@@ -80,5 +73,5 @@ class RecentCounter {
 
 /*
  *@jackpoit
- *@date 2021-06-15 20:32:59
+ *@date 2021-06-15 23:37:51	
  */
